@@ -3,7 +3,7 @@ create schema if not exists SGA default char set utf8;
 use SGA;
 
 create table if not exists tb_cargo(
-	id int auto_increment primary key,
+	id int auto_increment primary key, 
     tipo varchar(50) null
 )ENGINE = InnoDB;
 
