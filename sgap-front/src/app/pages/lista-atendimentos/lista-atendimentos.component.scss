@@ -1,0 +1,33 @@
+@import '../../../styles.scss';
+
+.listagem {
+  margin: 0 auto;
+  width: 80%;
+
+  &__atendimentos {
+    border: 1px solid $preto;
+    margin: 2em auto;
+
+    thead {
+      tr {
+        td {
+          border-radius: 16px 0 0 0;
+          border: 1px solid $preto;
+          font-weight: bold;
+          padding: 2em 3em;
+          text-align: center;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        td {
+          border: 1px solid $preto;
+          padding: 1em 2em;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

@@ -7,6 +7,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { CardLoginComponent } from './shared/card-login/card-login.component';
 import { ListaAtendimentosComponent } from './pages/lista-atendimentos/lista-atendimentos.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     CardLoginComponent,
     ListaAtendimentosComponent,
+    ToolbarComponent,
   ],
   imports: [
     BrowserModule,
