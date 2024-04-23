@@ -5,7 +5,7 @@
   background: $branco;
   border-radius: 12px;
   border-top: 30px solid rgba(2, 0, 36, 1);
-  box-shadow: 6px 9px 3px #CCCCCC;
+  box-shadow: 6px 9px 3px #cccccc;
   display: flex;
   flex-direction: column;
   height: 70vh;
@@ -51,8 +51,23 @@
         padding: 1em 0.5em;
         width: 80%;
       }
-    }
 
+      button {
+        background: rgba(2, 0, 36, 1);
+        border-radius: 14px;
+        border: 1px solid $preto;
+        color: $branco;
+        font-weight: bold;
+        padding: 1em 3em;
+        text-transform: uppercase;
+
+        &:hover {
+          cursor: pointer;
+          background: rgb(8, 0, 159);
+          transition: background 0.5s ease-out;
+        }
+      }
+    }
   }
 
   .card-login__links {
@@ -65,6 +80,15 @@
 
     a {
       font-size: 0.7em;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &:disabled {
+        background-color: #999999;
+      }
     }
   }
 }

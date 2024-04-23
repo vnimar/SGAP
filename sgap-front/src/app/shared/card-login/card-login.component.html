@@ -1,13 +1,16 @@
 <section class="card-login">
   <h1 class="card-login__titulo">SGAP</h1>
-  <form action="">
+  <form [formGroup]="formLogin">
     <div class="card-login__campos">
       <label for="email">E-mail:</label>
-      <input type="email" name="email" id="email" placeholder="Digite seu email">
+      <input formControlName="email" type="email" name="email" id="email" placeholder="Digite seu email">
     </div>
     <div class="card-login__campos">
       <label for="senha">Senha:</label>
-      <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
+      <input formControlName="senha" type="password" name="senha" id="senha" placeholder="Digite sua senha">
+    </div>
+    <div class="card-login__campos">
+      <button [disabled]="formLogin.invalid" (click)="login()">Logar</button>
     </div>
   </form>
   <div class="card-login__links">

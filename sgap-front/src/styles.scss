@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Reddit+Mono:wght@200..900&display=swap");
 
 $branco: #ffffff;
+$preto: #000000;
 $fonte-titulo: "Reddit Mono", monospace;
 $fonte-principal: "Anton", sans-serif;
 
@@ -128,4 +129,9 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+/* estilos padrões */
+body {
+  font-family: $fonte-principal;
 }
