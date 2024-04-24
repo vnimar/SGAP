@@ -1,0 +1,42 @@
+@import "../../../styles.scss";
+
+.menu-list {
+  background: rgba(2, 0, 36, 1);
+  display: block;
+  height: calc(100vh - 80px);
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  transition: width 0.5s ease;
+  top: 80px;
+  width: 0vw;
+  z-index: 3;
+
+  ul {
+    display: none;
+    list-style: none;
+    margin: 1em auto;
+    padding: 0;
+    width: 85%;
+
+    li {
+      margin-bottom: 10px;
+
+      a {
+        color: $branco;
+        font-size: 1.2em;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.open {
+  transition: width 0.5s ease;
+  width: 20vw;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+   }
+}

@@ -26,7 +26,7 @@
     flex-direction: column;
     justify-content: space-around;
     gap: 2em;
-    width: 100%;
+    width: 80%;
 
     .card-login__campos {
       align-items: center;
@@ -41,7 +41,6 @@
         color: gray;
         font-weight: 300;
         font-size: 0.6em;
-        padding-left: 10%;
         padding-bottom: 1em;
       }
 
@@ -49,13 +48,21 @@
         border-radius: 12px;
         border: 2px solid #999999;
         padding: 1em 0.5em;
-        width: 80%;
+        width: 100%;
       }
 
-      button {
+      .card-login__errors {
+        display: flex;
+        width: 100%;
+
+        app-mensagem-erro {
+          align-self: flex-start;
+        }
+      }
+
+      .card-login__botao {
         background: rgba(2, 0, 36, 1);
         border-radius: 14px;
-        border: 1px solid $preto;
         color: $branco;
         font-weight: bold;
         padding: 1em 3em;
@@ -63,8 +70,14 @@
 
         &:hover {
           cursor: pointer;
-          background: rgb(8, 0, 159);
+          background: rgb(13, 9, 81);
           transition: background 0.5s ease-out;
+        }
+
+        &:disabled {
+          cursor: default;
+          border: none;
+          background-color: #999999;
         }
       }
     }
@@ -84,10 +97,6 @@
 
       &:hover {
         text-decoration: underline;
-      }
-
-      &:disabled {
-        background-color: #999999;
       }
     }
   }

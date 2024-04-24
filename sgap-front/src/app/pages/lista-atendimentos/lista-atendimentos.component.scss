@@ -4,14 +4,17 @@
   margin: 0 auto;
   width: 80%;
 
-  &__atendimentos {
+  .tabela {
     border: 1px solid $preto;
+    border-radius: 10px 10px 0 0;
     margin: 2em auto;
 
-    thead {
+    &__cabecalho {
+      background-color: rgba(2, 0, 36, 1);
+      color: $branco;
+
       tr {
         td {
-          border-radius: 16px 0 0 0;
           border: 1px solid $preto;
           font-weight: bold;
           padding: 2em 3em;
@@ -20,7 +23,7 @@
       }
     }
 
-    tbody {
+    &__corpo {
       tr {
         td {
           border: 1px solid $preto;

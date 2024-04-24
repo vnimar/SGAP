@@ -4,13 +4,25 @@
     <div class="card-login__campos">
       <label for="email">E-mail:</label>
       <input formControlName="email" type="email" name="email" id="email" placeholder="Digite seu email">
+      <div
+        *ngIf="formLogin.get('email')?.invalid && formLogin.get('email')?.errors && (formLogin.get('email')?.dirty || formLogin.get('email')?.touched)"
+        class="card-login__errors">
+        <app-mensagem-erro *ngIf="formLogin.get('email')?.errors?.['required']">E-mail é obrigatório</app-mensagem-erro>
+        <app-mensagem-erro *ngIf="formLogin.get('email')?.errors?.['email']">Padrão de E-mail é
+          inválido</app-mensagem-erro>
+      </div>
     </div>
     <div class="card-login__campos">
       <label for="senha">Senha:</label>
       <input formControlName="senha" type="password" name="senha" id="senha" placeholder="Digite sua senha">
+      <div
+        *ngIf="formLogin.get('senha')?.invalid && formLogin.get('senha')?.errors && (formLogin.get('senha')?.dirty || formLogin.get('senha')?.touched)"
+        class="card-login__errors">
+        <app-mensagem-erro *ngIf="formLogin.get('senha')?.errors?.['required']">Senha é obrigatória</app-mensagem-erro>
+      </div>
     </div>
     <div class="card-login__campos">
-      <button [disabled]="formLogin.invalid" (click)="login()">Logar</button>
+      <button class="card-login__botao" [disabled]="formLogin.invalid" (click)="login()">Logar</button>
     </div>
   </form>
   <div class="card-login__links">

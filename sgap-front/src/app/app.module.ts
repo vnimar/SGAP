@@ -8,6 +8,9 @@ import { CardLoginComponent } from './shared/card-login/card-login.component';
 import { ListaAtendimentosComponent } from './pages/lista-atendimentos/lista-atendimentos.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
+import { MensagemErroComponent } from './shared/mensagem-erro/mensagem-erro.component';
+import { BotaoHamburguerComponent } from './shared/botao-hamburguer/botao-hamburguer.component';
+import { MenuLateralComponent } from './shared/menu-lateral/menu-lateral.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,9 @@ import { ToolbarComponent } from './shared/toolbar/toolbar.component';
     CardLoginComponent,
     ListaAtendimentosComponent,
     ToolbarComponent,
+    MensagemErroComponent,
+    BotaoHamburguerComponent,
+    MenuLateralComponent,
   ],
   imports: [
     BrowserModule,

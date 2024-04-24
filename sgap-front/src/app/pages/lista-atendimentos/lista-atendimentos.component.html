@@ -1,7 +1,7 @@
 <app-toolbar></app-toolbar>
 <main class="listagem">
-  <table class="listagem__atendimentos">
-    <thead>
+  <table class="tabela">
+    <thead class="tabela__cabecalho">
       <tr>
         <td>Horário</td>
         <td>Paciente</td>
@@ -9,12 +9,12 @@
         <td>Consulta</td>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <td>14:00</td>
-        <td>Sávio Alcantara</td>
-        <td>Juscelino Silva</td>
-        <td>Ortopedia</td>
+    <tbody class="tabela__corpo">
+      <tr *ngFor="let atendimento of listaAtendimentos">
+        <td>{{ atendimento.horario }}</td>
+        <td>{{ atendimento.paciente }}</td>
+        <td>{{ atendimento.medico }}</td>
+        <td>{{ atendimento.consulta }}</td>
       </tr>
     </tbody>
   </table>
