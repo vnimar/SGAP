@@ -1,6 +1,6 @@
 <app-toolbar></app-toolbar>
 <main class="listagem">
-  <table class="tabela">
+  <table class="tabela" *ngIf="listaAtendimentos.length > 0; else semAtendimentos">
     <thead class="tabela__cabecalho">
       <tr>
         <td>Horário</td>
@@ -19,3 +19,9 @@
     </tbody>
   </table>
 </main>
+<ng-template #semAtendimentos>
+  <div class="container-vazio">
+    <p class="texto-vazio">Sem Atendimentos!</p>
+    <p class="texto-vazio">Insira um atendimento</p>
+  </div>
+</ng-template>

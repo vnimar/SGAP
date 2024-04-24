@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Atendimento } from 'src/app/core/types/atendimento';
 
 @Component({
   selector: 'app-lista-atendimentos',
@@ -6,8 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./lista-atendimentos.component.scss']
 })
 export class ListaAtendimentosComponent {
-  listaAtendimentos = [
-    { horario: '14:00', paciente: 'Sávio Alcantara', medico: 'Juscelino Silva', consulta: 'Ortopedia' },
-    { horario: '15:00', paciente: 'Maria Oliveira', medico: 'João Santos', consulta: 'Cardiologia' },
+  listaAtendimentos: Atendimento[] = [
+    { id: 1, horario: '14:00', paciente: 'Sávio Alcantara', medico: 'Juscelino Silva', consulta: 'Ortopedia' },
+    { id: 2, horario: '15:00', paciente: 'Maria Oliveira', medico: 'João Santos', consulta: 'Cardiologia' },
   ]
 }

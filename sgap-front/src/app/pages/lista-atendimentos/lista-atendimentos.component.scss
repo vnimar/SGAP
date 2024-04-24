@@ -33,4 +33,13 @@
       }
     }
   }
+
+  .container-vazio {
+    margin: 5em auto;
+    .texto-vazio {
+      text-align: center;
+      font-weight: bold;
+      padding: 1em 0;
+    }
+  }
 }
