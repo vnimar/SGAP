@@ -1,7 +1,9 @@
 export interface Atendimento {
   id: number,
-  horario: string,
-  medico: string,
-  paciente: string,
-  consulta: string
+  horario: string | Date,
+  medico?: string,
+  paciente?: string,
+  consulta?: string,
+  tipo: string,
+  observacao: string
 }

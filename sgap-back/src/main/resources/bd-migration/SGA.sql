@@ -1,5 +1,5 @@
-drop database if exists SGA;
-create schema if not exists SGA default char set utf8;
+drop database if exists SGAP;
+create schema if not exists SGAP default char set utf8;
 use SGA;
 
 create table if not exists tb_cargo(
@@ -27,12 +27,11 @@ create table if not exists tb_paciente(
 
 create table if not exists tb_atendimento(
 	id int auto_increment primary key,
-    atendimento_data date null,
-    atendimento_hora time null,
+    atendimento_data timestamp not null,
     paciente_id int,
     medico_id int,
-    tipo varchar(200) null,
-    observacao varchar(200) null,
+    tipo varchar(100) not null,
+    observacao text not null,
     foreign key (medico_id) references tb_funcionarios (id),
     foreign key (paciente_id) references tb_paciente (id)
 )ENGINE = InnoDB;
