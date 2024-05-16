@@ -1,9 +1,9 @@
 drop database if exists SGAP;
 create schema if not exists SGAP default char set utf8;
-use SGA;
+use SGAP;
 
 create table if not exists tb_cargo(
-	id int auto_increment primary key, 
+	id int auto_increment primary key,
     tipo varchar(50) null
 )ENGINE = InnoDB;
 
@@ -27,7 +27,7 @@ create table if not exists tb_paciente(
 
 create table if not exists tb_atendimento(
 	id int auto_increment primary key,
-    atendimento_data timestamp not null,
+    `horario` VARCHAR(60) not null,
     paciente_id int,
     medico_id int,
     tipo varchar(100) not null,
@@ -47,7 +47,7 @@ select * from tb_funcionarios;
 insert into tb_paciente (nome, email, telefone) values ('Igor Miranda', 'igmimo@gmail.com', '95428361');
 select * from tb_paciente;
 
-insert into tb_atendimento (atendimento_data, atendimento_hora, paciente_id, medico_id) values ('2024-04-16', '09:15', '1', '2');
+-- insert into tb_atendimento (atendimento_data, paciente_id, medico_id) values ('2024-04-16', '09:15', '1', '2');
 select * from tb_atendimento;
 
 SELECT tb_paciente.nome AS 'Paciente', tb_funcionarios.nome AS 'Medico', 
