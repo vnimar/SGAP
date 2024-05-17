@@ -12,11 +12,11 @@ import lombok.*;
 @EqualsAndHashCode(of = "id")
 public class Atendimento {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "horario", nullable = false)
     private String horario;
-    @Column(name = "tipo", nullable = false, length = 100)
+    @Column(name = "tipo_atendimento", nullable = false, length = 100)
     private String tipo;
     @Column(name = "observacao", nullable = false, columnDefinition = "TEXT")
     private String observacao;

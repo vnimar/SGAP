@@ -5,17 +5,17 @@ import { ListaAtendimentosComponent } from './pages/lista-atendimentos/lista-ate
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: '/login',
-    pathMatch: 'full',
-  },
-  {
     path: 'login',
     component: LoginComponent,
   },
   {
     path: 'lista-atendimentos',
     component: ListaAtendimentosComponent,
+  },
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full',
   },
 ];
 

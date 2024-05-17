@@ -1,4 +1,4 @@
-@import "../../../styles.scss";
+@import "../../../../styles.scss";
 
 .menu-list {
   background: rgba(2, 0, 36, 1);
@@ -20,12 +20,18 @@
     width: 85%;
 
     li {
-      margin-bottom: 10px;
+      border-bottom: 1px solid $branco;
+      margin: 10px auto;
+      width: 100%;
 
       a {
         color: $branco;
         font-size: 1.2em;
         text-decoration: none;
+
+        &:hover {
+          font-weight: bold;
+        }
       }
     }
   }
