@@ -7,10 +7,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListaAtendimentosComponent } from './pages/lista-atendimentos/lista-atendimentos.component';
 import { LoginComponent } from './pages/login/login.component';
-import { BotaoHamburguerComponent } from './shared/botao-hamburguer/botao-hamburguer.component';
+import { BotaoHamburguerComponent } from './shared/toolbar/menu-lateral/botao-hamburguer/botao-hamburguer.component';
 import { CardLoginComponent } from './shared/card-login/card-login.component';
 import { MensagemErroComponent } from './shared/mensagem-erro/mensagem-erro.component';
-import { MenuLateralComponent } from './shared/menu-lateral/menu-lateral.component';
+import { MenuLateralComponent } from './shared/toolbar/menu-lateral/menu-lateral.component';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 
 @NgModule({

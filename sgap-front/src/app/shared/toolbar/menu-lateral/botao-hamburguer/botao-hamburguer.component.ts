@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./botao-hamburguer.component.scss']
 })
 export class BotaoHamburguerComponent {
-  toggleMenu(){}
+
 }
