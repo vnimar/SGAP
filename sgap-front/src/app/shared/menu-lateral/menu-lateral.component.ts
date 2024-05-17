@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./menu-lateral.component.scss']
 })
 export class MenuLateralComponent {
-  @Input() menuOpen: boolean = false;
+  @Input() menuOpen = false;
 }

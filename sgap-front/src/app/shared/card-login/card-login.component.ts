@@ -9,7 +9,7 @@ import { FormsService } from 'src/app/core/services/forms.service';
 })
 export class CardLoginComponent implements OnInit {
   formLogin!: FormGroup;
-  @Output() cliqueLogin: EventEmitter<any> = new EventEmitter<any>();
+  @Output() cliqueLogin: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(
     private formBuilder: FormBuilder,
