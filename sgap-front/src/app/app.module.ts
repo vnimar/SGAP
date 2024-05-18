@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +12,8 @@ import { CardLoginComponent } from './shared/card-login/card-login.component';
 import { MensagemErroComponent } from './shared/mensagem-erro/mensagem-erro.component';
 import { MenuLateralComponent } from './shared/toolbar/menu-lateral/menu-lateral.component';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
+import { PageNotFoundComponent } from './core/erro/page-not-found/page-not-found.component';
+import { ErrosInterceptor } from './core/erro/erros.interceptor';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { ToolbarComponent } from './shared/toolbar/toolbar.component';
     MensagemErroComponent,
     BotaoHamburguerComponent,
     MenuLateralComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,13 @@ import { ToolbarComponent } from './shared/toolbar/toolbar.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrosInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

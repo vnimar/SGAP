@@ -21,7 +21,7 @@ export class AtendimentoService {
   }
 
   public listarAtendimentos(): Observable<Atendimento[]> {
-    return this.http.get<Atendimento[]>(`${this.API}/atendimento`);
+    return this.http.get<Atendimento[]>(`${this.API}/atendimentos`);
   }
 
   public excluirAtendimento(id: number): Observable<Atendimento> {
