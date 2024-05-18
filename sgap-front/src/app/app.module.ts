@@ -6,24 +6,24 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ErrosInterceptor } from './core/erro/erros.interceptor';
-import { PageNotFoundComponent } from './core/erro/page-not-found/page-not-found.component';
 import { ListaAtendimentosComponent } from './pages/lista-atendimentos/lista-atendimentos.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SharedModule } from './shared/shared.module';
+import { ErroModule } from './core/erro/erro.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ListaAtendimentosComponent,
-    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    ErroModule
   ],
   providers: [
     {

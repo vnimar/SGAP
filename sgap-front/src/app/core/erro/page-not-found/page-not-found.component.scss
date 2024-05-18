@@ -1,0 +1,20 @@
+@import '../../../../styles.scss';
+
+.container-erro {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80vh;
+  width: 100%;
+
+  h2 {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+
+    span {
+      color: $vermelho;
+    }
+  }
+}

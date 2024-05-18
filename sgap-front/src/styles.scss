@@ -4,6 +4,7 @@ $branco: #ffffff;
 $preto: #000000;
 $azul: rgb(79, 71, 238);
 $azul-escuro: rgba(2, 0, 36, 1);
+$vermelho: rgb(255, 0, 0);
 
 $fonte-titulo: "Anton", sans-serif;
 $fonte-principal: "Reddit Mono", monospace;
@@ -138,4 +139,8 @@ table {
 body {
   background-color: rgb(236, 236, 208);
   font-family: $fonte-principal;
+}
+
+main {
+  min-height: 50vh;
 }
