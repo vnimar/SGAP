@@ -1,23 +1,46 @@
-@import '../../../styles.scss';
+@import "../../../styles.scss";
 
 .listagem {
-  margin: 0 auto;
-  width: 80%;
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+  padding: 0 auto;
+  width: 100%;
+
+  .acoes {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin: 1em 0;
+    width: 100%;
+
+    .botao {
+      background: $azul-escuro;
+      border: none;
+      border-radius: 4px;
+      color: $branco;
+      font-weight: bold;
+      padding: 1em;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
 
   .tabela {
-    border: 1px solid $preto;
     border-radius: 10px 10px 0 0;
-    margin: 2em auto;
+    margin: 1.5em auto;
 
     &__cabecalho {
-      background-color: rgba(2, 0, 36, 1);
+      background-color: $azul-escuro;
       color: $branco;
 
       tr {
         td {
-          border: 1px solid $preto;
+          border: 1px solid $branco;
           font-weight: bold;
-          padding: 2em 3em;
+          padding: 1.5em 3em;
           text-align: center;
         }
       }
@@ -26,9 +49,20 @@
     &__corpo {
       tr {
         td {
-          border: 1px solid $preto;
-          padding: 1em 2em;
+          background: $azul;
+          border: 1px solid $branco;
+          color: $branco;
+          padding: 0.5em 2em;
           text-align: center;
+        }
+      }
+    }
+
+    &__rodape {
+      background-color: $azul-escuro;
+      tr {
+        .footer-container {
+           height: 30px;
         }
       }
     }
@@ -36,6 +70,7 @@
 
   .container-vazio {
     margin: 5em auto;
+
     .texto-vazio {
       text-align: center;
       font-weight: bold;

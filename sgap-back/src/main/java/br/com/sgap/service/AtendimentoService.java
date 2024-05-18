@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AtendimentoService {
@@ -23,5 +24,14 @@ public class AtendimentoService {
     public List<Atendimento> list() {
         List<Atendimento> atendimentos = atendimentoRepository.findAll();
         return atendimentos;
+    }
+
+    public void delete(Integer id) {
+        atendimentoRepository.deleteById(id);
+    }
+
+    public Optional<Atendimento> getById(Integer id) {
+        var atendimento = atendimentoRepository.getReferenceById(id);
+        return Optional.of(atendimento);
     }
 }

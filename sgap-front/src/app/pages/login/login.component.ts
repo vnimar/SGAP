@@ -17,7 +17,7 @@ export class LoginComponent {
     const loginForm = this.formsService.getForm();
 
     if(loginForm?.valid){
-      this.router.navigate(['/lista-atendimentos']);
+      this.router.navigate(['/atendimentos/lista']);
     }
   }
 }

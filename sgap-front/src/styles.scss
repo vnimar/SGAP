@@ -2,6 +2,9 @@
 
 $branco: #ffffff;
 $preto: #000000;
+$azul: rgb(79, 71, 238);
+$azul-escuro: rgba(2, 0, 36, 1);
+
 $fonte-titulo: "Anton", sans-serif;
 $fonte-principal: "Reddit Mono", monospace;
 
@@ -133,5 +136,6 @@ table {
 
 /* estilos padrões */
 body {
+  background-color: rgb(236, 236, 208);
   font-family: $fonte-principal;
 }

@@ -16,7 +16,15 @@ export class AtendimentoService {
     return this.http.post<Atendimento>(`${this.API}/atendimento`, atendimento);
   }
 
+  public consultarAtendimento(id: number): Observable<Atendimento> {
+    return this.http.get<Atendimento>(`${this.API}/atendimento/${id}`);
+  }
+
   public listarAtendimentos(): Observable<Atendimento[]> {
     return this.http.get<Atendimento[]>(`${this.API}/atendimento`);
+  }
+
+  public excluirAtendimento(id: number): Observable<Atendimento> {
+    return this.http.delete<Atendimento>(`${this.API}/atendimento/${id}`);
   }
 }

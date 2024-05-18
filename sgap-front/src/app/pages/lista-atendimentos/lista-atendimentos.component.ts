@@ -33,14 +33,15 @@ export class ListaAtendimentosComponent implements OnInit {
   criar() {
     const atendimento1: Atendimento = {
       id: 0,
-      horario: new Date().toISOString().slice(0, 19).replace('T', ' '), // Converte para o formato de string desejado
+      horario: new Date().toISOString(), // Converte para o formato de string desejado
       tipo: 'atendimento normal ',
       observacao: 'nenhuma',
     };
 
-
     this.atendimentoService.cadastrarAtendimento(atendimento1).subscribe({
-      next: (resp) => {
+      next: () => {
+        alert("Sucesso ao criar atendimento!");
+        window.location.reload();
       },
       error: () => {
         alert("Erro ao criar atendimento!");

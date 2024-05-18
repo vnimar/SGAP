@@ -14,11 +14,11 @@ public class Atendimento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "horario", nullable = false)
+    @Column(name = "horario", nullable = false, length = 60)
     private String horario;
     @Column(name = "tipo_atendimento", nullable = false, length = 100)
     private String tipo;
-    @Column(name = "observacao", nullable = false, columnDefinition = "TEXT")
+    @Column(name = "observacao", columnDefinition = "TEXT")
     private String observacao;
 //    @OneToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "paciente_id")

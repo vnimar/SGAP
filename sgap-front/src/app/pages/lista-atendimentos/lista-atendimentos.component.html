@@ -1,24 +1,34 @@
 <app-toolbar></app-toolbar>
 <main class="listagem">
+  <div class="acoes">
+    <button class="botao" (click)="criar()">Cadastrar</button>
+    <button class="botao">Carregar +</button>
+  </div>
   <table class="tabela" *ngIf="listaAtendimentos.length > 0; else semAtendimentos">
     <thead class="tabela__cabecalho">
       <tr>
-        <td>Horário</td>
         <td>Paciente</td>
+        <td>Horário</td>
         <td>Médico</td>
-        <td>Consulta</td>
+        <td>Tipo/Atendimento</td>
+        <td>Editar</td>
       </tr>
     </thead>
     <tbody class="tabela__corpo">
       <tr *ngFor="let atendimento of listaAtendimentos">
-        <td>{{ atendimento.horario }}</td>
         <td>{{ atendimento.paciente }}</td>
+        <td>{{ atendimento.horario | date: 'dd/MM/yy - hh:mm' }}</td>
         <td>{{ atendimento.medico }}</td>
-        <td>{{ atendimento.consulta }}</td>
+        <td>{{ atendimento.tipo }}</td>
+        <td><a routerLink="#"><img src="../../../assets/icons/icone-editar-branco.svg" alt="botão de edição"></a></td>
       </tr>
     </tbody>
+    <tfoot class="tabela__rodape">
+      <tr>
+        <td colspan="5" class="footer-container"></td>
+      </tr>
+    </tfoot>
   </table>
-  <button (click)="criar()">crie</button>
 </main>
 <ng-template #semAtendimentos>
   <div class="container-vazio">

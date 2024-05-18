@@ -25,15 +25,15 @@ create table if not exists tb_paciente(
     telefone varchar(18) not null
 )ENGINE = InnoDB;
 
-create table if not exists `SGAP`.`tb_atendimento`(
+CREATE TABLE IF NOT EXISTS `SGAP`.`tb_atendimento`(
 	`id` INT AUTO_INCREMENT PRIMARY KEY,
     `horario` VARCHAR(60) NOT NULL,
     `tipo_atendimento` varchar(100) NOT NULL,
     `observacao` TEXT NULL,
-	paciente_id int,
-    medico_id int,
-    foreign key (medico_id) references tb_funcionarios (id),
-    foreign key (paciente_id) references tb_paciente (id)
+	paciente_id INT,
+    medico_id INT,
+    FOREIGN KEY (medico_id) REFERENCES tb_funcionarios (id),
+    FOREIGN KEY (paciente_id) REFERENCES tb_paciente (id)
 )ENGINE = InnoDB;
 
 insert into tb_cargo (tipo) values ('Atendente');
@@ -47,8 +47,9 @@ select * from tb_funcionarios;
 insert into tb_paciente (nome, email, telefone) values ('Igor Miranda', 'igmimo@gmail.com', '95428361');
 select * from tb_paciente;
 
-insert into tb_atendimento (horario, tipo_atendimento, observacao, paciente_id, medico_id) values ('2024-05-17 23:19:38', 'Cardiologia', null, '1', '2');
-select * from tb_atendimento;
+-- Inserindo Atendimento e consultando:
+INSERT INTO `tb_atendimento` (horario, tipo_atendimento, observacao, paciente_id, medico_id) VALUES ('2024-05-17 23:19:38', 'Cardiologia', null, '1', '2');
+SELECT * FROM `tb_atendimento`;
 
 SELECT tb_paciente.nome AS 'Paciente', tb_funcionarios.nome AS 'Medico', 
 		tb_atendimento.atendimento_data AS 'Data_Atendimento', tb_atendimento.atendimento_hora AS 'Hora_Atendimento'

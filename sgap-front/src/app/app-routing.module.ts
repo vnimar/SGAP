@@ -9,7 +9,7 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: 'lista-atendimentos',
+    path: 'atendimentos/lista',
     component: ListaAtendimentosComponent,
   },
   {
