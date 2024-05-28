@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AtendimentoService } from 'src/app/core/services/atendimento.service';
 import { Atendimento } from 'src/app/core/types/atendimento';
+import { AtendimentoService } from '../services/atendimento.service';
 
 @Component({
   selector: 'app-lista-atendimentos',

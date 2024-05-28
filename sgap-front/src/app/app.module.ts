@@ -10,7 +10,7 @@ import { ListaAtendimentosComponent } from './atendimentos/lista-atendimentos/li
 import { LoginComponent } from './authentication/login/login.component';
 import { SharedModule } from './shared/shared.module';
 import { ErroModule } from './core/erro/erro.module';
-import { CadastroAtendimentosComponent } from './atendimentos/cadastro-atendimentos/cadastro-atendimentos.component';
+import { CadastroAtendimentosComponent } from './atendimentos/lista-atendimentos/cadastro-atendimentos/cadastro-atendimentos.component';
 import { UserEditComponent } from './authentication/user-edit/user-edit.component';
 import { UserCreateComponent } from './authentication/user-create/user-create.component';
 
