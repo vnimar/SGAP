@@ -1,7 +1,7 @@
-<app-toolbar></app-toolbar>
+<app-toolbar />
 <main class="listagem">
   <div class="acoes">
-    <button class="botao" (click)="criar()">Cadastrar</button>
+    <button class="botao" routerLink="/atendimentos/cadastrar">Cadastrar</button>
     <button class="botao">Carregar +</button>
   </div>
   <table class="tabela" *ngIf="listaAtendimentos.length > 0; else semAtendimentos">

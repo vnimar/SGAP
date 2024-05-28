@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+import { AtendimentoModule } from './atendimentos/atendimento.module';
 import { LoginComponent } from './authentication/login/login.component';
-import { ListaAtendimentosComponent } from './atendimentos/lista-atendimentos/lista-atendimentos.component';
 
 const routes: Routes = [
   {
@@ -9,8 +10,8 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: 'atendimentos/lista',
-    component: ListaAtendimentosComponent,
+    path: 'atendimentos',
+    loadChildren: () => import('./atendimentos/atendimento.module').then(m => AtendimentoModule)
   },
   {
     path: '',

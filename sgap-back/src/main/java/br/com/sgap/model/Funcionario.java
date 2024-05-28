@@ -3,8 +3,8 @@ package br.com.sgap.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Entity(name = "paciente")
-@Table(name = "tb_paciente")
+@Entity(name = "funcionario")
+@Table(name = "tb_funcionario")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
