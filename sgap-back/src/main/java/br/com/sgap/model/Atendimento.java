@@ -12,8 +12,8 @@ import lombok.*;
 @EqualsAndHashCode(of = "id")
 public class Atendimento {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
     @Column(name = "horario", nullable = false, length = 60)
     private String horario;
     @Column(name = "tipo_atendimento", nullable = false, length = 100)

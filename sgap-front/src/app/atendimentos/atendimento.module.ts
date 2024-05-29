@@ -6,6 +6,7 @@ import { AtendimentoRoutingModule } from "./atendimento-routing.module";
 import { CadastroAtendimentosComponent } from "./lista-atendimentos/cadastro-atendimentos/cadastro-atendimentos.component";
 import { ListaAtendimentosComponent } from "./lista-atendimentos/lista-atendimentos.component";
 import { EdicaoAtendimentosComponent } from "./lista-atendimentos/edicao-atendimentos/edicao-atendimentos.component";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { EdicaoAtendimentosComponent } from "./lista-atendimentos/edicao-atendim
   ],
   imports: [
     CommonModule,
+    RouterModule,
     SharedModule,
     AtendimentoRoutingModule
   ],

@@ -1,0 +1,11 @@
+.edicao {
+  margin: 0 auto;
+  padding: 2em 0;
+  width: 85%;
+
+  &__titulo {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+  }
+}

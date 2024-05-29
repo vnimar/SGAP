@@ -16,7 +16,7 @@ export class AtendimentoService {
     return this.http.post<Atendimento>(`${this.API}/atendimento`, atendimento);
   }
 
-  public consultarAtendimento(id: number): Observable<Atendimento> {
+  public consultarAtendimento(id: string): Observable<Atendimento> {
     return this.http.get<Atendimento>(`${this.API}/atendimento/${id}`);
   }
 
@@ -24,7 +24,13 @@ export class AtendimentoService {
     return this.http.get<Atendimento[]>(`${this.API}/atendimento`);
   }
 
-  public excluirAtendimento(id: number): Observable<Atendimento> {
+  public excluirAtendimento(id: string): Observable<Atendimento> {
     return this.http.delete<Atendimento>(`${this.API}/atendimento/${id}`);
+  }
+
+  public atualizarAtendimento(id: string, atendimento: Atendimento): Observable<Atendimento> {
+    console.log(atendimento);
+
+    return this.http.put<Atendimento>(`${this.API}/atendimento/${id}`, atendimento);
   }
 }

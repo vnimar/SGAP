@@ -1,2 +1,5 @@
 <app-toolbar />
-<app-form-atendimento [editComponent]="true"></app-form-atendimento>
+<main class="edicao">
+  <h2 class="edicao__titulo">Editar Atendimento</h2>
+  <app-form-atendimento [editComponent]="true" (acaoClique)="editarAtendimento()" (cliqueExcluir)="excluirAtendimento()"></app-form-atendimento>
+</main>

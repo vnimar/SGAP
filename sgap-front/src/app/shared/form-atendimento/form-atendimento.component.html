@@ -3,12 +3,14 @@
     <div class="row">
       <div class="col">
         <label for="horario">Horário</label>
-        <input type="datetime-local">
+        <input type="datetime-local" formControlName="horario">
+        <label for="tipo">Tipo</label>
+        <input type="text" formControlName="tipo">
       </div>
     </div>
     <div class="btn-group">
-      <button type="button" (click)="excluir()" *ngIf="editComponent === true" class="btn">EXCLUIR</button>
-      <button type="submit" (click)="executarAcao()" class="btn" [disabled]="formAtendimento.invalid">CRIAR</button>
+      <button type="button" (click)="excluir()" class="btn" *ngIf="editComponent === true">EXCLUIR</button>
+      <button type="submit" (click)="executarAcao()" class="btn" [disabled]="formAtendimento.invalid">ENVIAR</button>
     </div>
   </form>
 </section>

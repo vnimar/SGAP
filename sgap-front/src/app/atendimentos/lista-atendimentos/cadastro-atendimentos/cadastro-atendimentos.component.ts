@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { FormsService } from 'src/app/core/services/forms.service';
+import { Atendimento } from 'src/app/core/types/atendimento';
+import { AtendimentoService } from '../../services/atendimento.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro-atendimentos',
@@ -6,5 +10,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./cadastro-atendimentos.component.scss']
 })
 export class CadastroAtendimentosComponent {
+  novoAtendimento!: Atendimento;
 
+  constructor(
+    private formsService: FormsService,
+    private atendimentoService: AtendimentoService,
+    private router: Router
+  ){}
+
+  cadastrar(): void {
+    const formAtendimento = this.formsService.getForm();
+
+    if(formAtendimento?.valid){
+      this.novoAtendimento = formAtendimento.getRawValue() as Atendimento;
+
+      this.atendimentoService.cadastrarAtendimento(this.novoAtendimento).subscribe({
+        next: () => {
+          this.router.navigate(['/atendimentos/lista']);
+        }
+      })
+    }
+  }
 }

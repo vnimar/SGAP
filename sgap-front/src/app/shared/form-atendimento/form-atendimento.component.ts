@@ -20,7 +20,8 @@ export class FormAtendimentoComponent {
 
   ngOnInit(): void {
     this.formAtendimento = this.formBuilder.group({
-      horario: [null, Validators.required]
+      horario: [null, Validators.required],
+      tipo: [null, Validators.required],
     });
 
     this.formsService.setForm(this.formAtendimento);

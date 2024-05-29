@@ -12,7 +12,7 @@ import java.util.Optional;
 @RequestMapping(value = "/atendimento")
 public class AtendimentoController {
     @Autowired
-    AtendimentoService atendimentoService;
+    private AtendimentoService atendimentoService;
 
     @PostMapping
     public ResponseEntity<?> insert(@RequestBody Atendimento data) {
@@ -21,7 +21,7 @@ public class AtendimentoController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Optional<Atendimento>> findById (@PathVariable("id") Integer id){
+    public ResponseEntity<Optional<Atendimento>> findById (@PathVariable("id") String id){
         var atendimento = this.atendimentoService.getById(id);
         return ResponseEntity.ok(atendimento);
     }
@@ -33,8 +33,14 @@ public class AtendimentoController {
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<?> delete(@PathVariable("id") Integer id) {
+    public ResponseEntity<?> delete(@PathVariable("id") String id) {
         atendimentoService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<Atendimento> update(@PathVariable("id") String id, @RequestBody Atendimento atendimento) {
+        atendimentoService.update(id, atendimento);
         return ResponseEntity.noContent().build();
     }
 }
