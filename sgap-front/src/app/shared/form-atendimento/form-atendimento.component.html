@@ -1,0 +1,14 @@
+<section class="form-assistidos">
+  <form [formGroup]="formAtendimento">
+    <div class="row">
+      <div class="col">
+        <label for="horario">Horário</label>
+        <input type="datetime-local">
+      </div>
+    </div>
+    <div class="btn-group">
+      <button type="button" (click)="excluir()" *ngIf="editComponent === true" class="btn">EXCLUIR</button>
+      <button type="submit" (click)="executarAcao()" class="btn" [disabled]="formAtendimento.invalid">CRIAR</button>
+    </div>
+  </form>
+</section>

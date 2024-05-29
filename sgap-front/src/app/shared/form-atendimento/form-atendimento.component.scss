@@ -1,0 +1,27 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.col {
+  flex: 1;
+
+  .full-width {
+    width: 100%;
+    flex-grow: 10;
+  }
+}
+
+.btn-group {
+  align-items: center;
+  display: flex;
+  .btn {
+    margin-right: 12px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

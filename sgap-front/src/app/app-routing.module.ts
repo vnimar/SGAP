@@ -11,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: 'atendimentos',
-    loadChildren: () => import('./atendimentos/atendimento.module').then(m => AtendimentoModule)
+    loadChildren: () => import('./atendimentos/atendimento.module').then(m => m.AtendimentoModule)
   },
   {
     path: '',
