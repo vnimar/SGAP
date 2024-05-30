@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./botao-hamburguer.component.scss']
 })
 export class BotaoHamburguerComponent {
+  isRotated = false;
 
+  toggleRotate() {
+    this.isRotated = !this.isRotated;
+  }
 }

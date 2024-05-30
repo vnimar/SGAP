@@ -6,6 +6,11 @@
   cursor: pointer;
 }
 
+.menu-button.rotate {
+  transform: rotate(90deg);
+  transition: 0.1s ease-in-out;
+}
+
 .menu-icon {
   width: 30px;
   height: 4px;

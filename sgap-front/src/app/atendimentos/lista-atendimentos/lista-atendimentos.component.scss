@@ -15,15 +15,17 @@
     width: 100%;
 
     .botao {
-      background: $azul-escuro;
+      background: $azul;
       border: none;
-      border-radius: 4px;
+      border-radius: 6px;
       color: $branco;
       font-weight: bold;
       padding: 1em;
 
       &:hover {
+        background: $azul-escuro;
         cursor: pointer;
+        transition: 0.3s ease-out;
       }
     }
   }

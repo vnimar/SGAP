@@ -1,27 +1,44 @@
-.row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 12px;
-}
+@import "../../../styles.scss";
 
-.col {
-  flex: 1;
-
-  .full-width {
-    width: 100%;
-    flex-grow: 10;
+.form-assistidos {
+  padding: 2em 0;
+  .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
   }
-}
 
-.btn-group {
-  align-items: center;
-  display: flex;
-  .btn {
-    margin-right: 12px;
+  .col {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 1em 0;
+  }
 
-    &:last-child {
-      margin-right: 0;
+  .btn-group {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    .btn {
+      background: $azul;
+      border: none;
+      border-radius: 6px;
+      color: $branco;
+      font-weight: bold;
+      padding: 0.5em 1em;
+
+      &:hover {
+        background: $azul-escuro;
+        cursor: pointer;
+        transition: 0.3s ease-out;
+      }
+
+      &:last-child {
+        margin-left: 1em;
+      }
     }
   }
+
 }

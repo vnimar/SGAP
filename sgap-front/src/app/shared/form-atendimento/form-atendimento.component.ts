@@ -22,6 +22,7 @@ export class FormAtendimentoComponent {
     this.formAtendimento = this.formBuilder.group({
       horario: [null, Validators.required],
       tipo: [null, Validators.required],
+      observacao: [null]
     });
 
     this.formsService.setForm(this.formAtendimento);

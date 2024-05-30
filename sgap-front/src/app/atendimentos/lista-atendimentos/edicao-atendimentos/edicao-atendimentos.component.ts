@@ -38,6 +38,7 @@ export class EdicaoAtendimentosComponent implements OnInit {
       id: this.atendimento.id,
       horario: this.atendimento.horario,
       tipo: this.atendimento.tipo,
+      observacao: this.atendimento.observacao
     });
   }
 
@@ -46,7 +47,7 @@ export class EdicaoAtendimentosComponent implements OnInit {
       id: this.atendimento.id,
       horario: this.formAtendimento?.value.horario,
       tipo: this.formAtendimento?.value.tipo,
-      observacao: ''
+      observacao: this.formAtendimento?.value.observacao
     }
 
     this.atendimentoService.atualizarAtendimento(this.atendimento.id, dadosAtualizados).subscribe({
