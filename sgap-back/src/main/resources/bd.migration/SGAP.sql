@@ -52,6 +52,6 @@ INSERT INTO `tb_atendimento` (id, horario, tipo_atendimento, observacao, pacient
 SELECT * FROM `tb_atendimento`;
 
 SELECT tb_paciente.nome AS 'Paciente', tb_funcionarios.nome AS 'Medico',
-		tb_atendimento.atendimento_data AS 'Data_Atendimento', tb_atendimento.atendimento_hora AS 'Hora_Atendimento'
+		tb_atendimento.horario AS 'DataHora_Atendimento'
 		FROM tb_atendimento JOIN  tb_paciente ON tb_atendimento.paciente_id = tb_paciente.id
 		JOIN tb_funcionarios ON tb_atendimento.medico_id = tb_funcionarios.id;
