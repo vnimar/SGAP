@@ -6,11 +6,6 @@
   cursor: pointer;
 }
 
-.menu-button.rotate {
-  transform: rotate(90deg);
-  transition: 0.1s ease-in-out;
-}
-
 .menu-icon {
   width: 30px;
   height: 4px;
@@ -36,16 +31,4 @@
 
 .menu-icon:after {
   top: 10px;
-}
-
-.open .menu-icon:before {
-  transform: translateY(10px) rotate(45deg);
-}
-
-.open .menu-icon:after {
-  transform: translateY(-10px) rotate(-45deg);
-}
-
-.open .menu-icon {
-  background-color: transparent;
 }

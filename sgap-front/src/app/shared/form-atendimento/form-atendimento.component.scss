@@ -21,19 +21,8 @@
     display: flex;
     justify-content: center;
 
-    .btn {
-      background: $azul;
-      border: none;
-      border-radius: 6px;
-      color: $branco;
-      font-weight: bold;
+    .botao {
       padding: 0.5em 1em;
-
-      &:hover {
-        background: $azul-escuro;
-        cursor: pointer;
-        transition: 0.3s ease-out;
-      }
 
       &:last-child {
         margin-left: 1em;

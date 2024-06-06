@@ -46,7 +46,7 @@
 
       input {
         border-radius: 12px;
-        border: 2px solid #999999;
+        border: 2px solid $cinza;
         padding: 1em 0.5em;
         width: 100%;
       }
@@ -60,24 +60,15 @@
         }
       }
 
-      .card-login__botao {
-        background: rgba(2, 0, 36, 1);
+      .botao {
+        background: $azul-escuro;
         border-radius: 14px;
-        color: $branco;
-        font-weight: bold;
         padding: 1em 3em;
-        text-transform: uppercase;
 
         &:hover {
           cursor: pointer;
-          background: rgb(13, 9, 81);
-          transition: background 0.5s ease-out;
-        }
-
-        &:disabled {
-          cursor: default;
-          border: none;
-          background-color: #999999;
+          background: $azul;
+          transition: background 0.3s ease-out;
         }
       }
     }

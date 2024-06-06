@@ -2,17 +2,23 @@
   <form [formGroup]="formAtendimento">
     <div class="row">
       <div class="col">
-        <label for="horario">Horário</label>
-        <input type="datetime-local" formControlName="horario">
-        <label for="tipo">Tipo</label>
-        <input type="text" formControlName="tipo">
-        <label for="observacao">Observações</label>
-        <textarea formControlName="observacao"></textarea>
+        <div class="input-texto">
+          <label for="horario">Horário</label>
+          <input type="datetime-local" formControlName="horario">
+        </div>
+        <div class="input-texto">
+          <label for="tipo">Tipo</label>
+          <input type="text" formControlName="tipo">
+        </div>
+        <div class="input-texto">
+          <label for="observacao">Observações</label>
+          <textarea formControlName="observacao"></textarea>
+        </div>
       </div>
     </div>
     <div class="btn-group">
-      <button type="button" (click)="excluir()" class="btn" *ngIf="editComponent === true">EXCLUIR</button>
-      <button type="submit" (click)="executarAcao()" class="btn" [disabled]="formAtendimento.invalid">ENVIAR</button>
+      <button type="button" (click)="excluir()" class="botao" *ngIf="editComponent === true">EXCLUIR</button>
+      <button type="submit" (click)="executarAcao()" class="botao" [disabled]="formAtendimento.invalid">ENVIAR</button>
     </div>
   </form>
 </section>

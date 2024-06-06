@@ -2,6 +2,7 @@
 
 $branco: #ffffff;
 $preto: #000000;
+$cinza: #999999;
 $azul: rgb(79, 71, 238);
 $azul-escuro: rgba(2, 0, 36, 1);
 $vermelho: rgb(255, 0, 0);
@@ -143,4 +144,74 @@ body {
 
 main {
   min-height: 50vh;
+}
+
+.botao {
+  background: $azul;
+  border: none;
+  border-radius: 6px;
+  color: $branco;
+  font-weight: bold;
+  padding: 1em;
+  text-transform: uppercase;
+
+  &:hover {
+    background: $azul-escuro;
+    cursor: pointer;
+    transition: 0.3s ease-out;
+  }
+
+  &:focus {
+    box-shadow: 0 0px 5px $azul-escuro;
+    outline: none;
+  }
+
+  &:disabled {
+    cursor: default;
+    border: none;
+    background-color: $cinza;
+  }
+}
+
+.input-texto {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 0.5em 0;
+  width: 100%;
+
+  label {
+    align-self: start;
+    display: block;
+    color: $preto;
+    font-weight: 300;
+    font-size: 0.8em;
+    padding-bottom: 1em;
+  }
+
+  input, textarea {
+    border-radius: 12px;
+    border: 2px solid $cinza;
+    padding: 1em 0.5em;
+    width: 100%;
+
+    &:focus {
+      box-shadow: 0 0px 5px $azul;
+      outline: none;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  .card-login__errors {
+    display: flex;
+    width: 100%;
+
+    app-mensagem-erro {
+      align-self: flex-start;
+    }
+  }
 }

@@ -13,21 +13,6 @@
     justify-content: center;
     margin: 1em 0;
     width: 100%;
-
-    .botao {
-      background: $azul;
-      border: none;
-      border-radius: 6px;
-      color: $branco;
-      font-weight: bold;
-      padding: 1em;
-
-      &:hover {
-        background: $azul-escuro;
-        cursor: pointer;
-        transition: 0.3s ease-out;
-      }
-    }
   }
 
   .tabela {
@@ -56,6 +41,12 @@
           color: $branco;
           padding: 0.5em 2em;
           text-align: center;
+
+          a:hover {
+            border-radius: 100%;
+            background: rgba(0, 0, 0, 0.316);
+            padding: 0.8em 0.5em 0.2em;
+          }
         }
       }
     }
