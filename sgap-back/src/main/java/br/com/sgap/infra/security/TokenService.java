@@ -1,6 +1,6 @@
 package br.com.sgap.infra.security;
 
-import br.com.sgap.model.Funcionario;
+import br.com.sgap.model.funcionario.Funcionario;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;

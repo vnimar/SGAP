@@ -1,4 +1,4 @@
-package br.com.sgap.model;
+package br.com.sgap.model.funcionario;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -17,4 +17,8 @@ public class Funcionario {
     private String nome;
     private String email;
     private String senha;
+
+    // construtor para o Funcionario sem ID
+    public Funcionario(String nome, String email, String encryptedPassword) {
+    }
 }
