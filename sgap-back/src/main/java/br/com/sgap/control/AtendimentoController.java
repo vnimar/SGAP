@@ -21,7 +21,7 @@ public class AtendimentoController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Optional<Atendimento>> findById (@PathVariable("id") String id){
+    public ResponseEntity<Optional<Atendimento>> findById (@PathVariable("id") Integer id){
         var atendimento = this.atendimentoService.getById(id);
         return ResponseEntity.ok(atendimento);
     }
@@ -33,13 +33,13 @@ public class AtendimentoController {
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<?> delete(@PathVariable("id") String id) {
+    public ResponseEntity<?> delete(@PathVariable("id") Integer id) {
         atendimentoService.delete(id);
         return ResponseEntity.noContent().build();
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Atendimento> update(@PathVariable("id") String id, @RequestBody Atendimento atendimento) {
+    public ResponseEntity<Atendimento> update(@PathVariable("id") Integer id, @RequestBody Atendimento atendimento) {
         atendimentoService.update(id, atendimento);
         return ResponseEntity.noContent().build();
     }

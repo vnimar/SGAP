@@ -26,15 +26,15 @@ public class AtendimentoService {
         return atendimentoRepository.findAll();
     }
 
-    public void delete(String id) {
+    public void delete(Integer id) {
         atendimentoRepository.deleteById(id);
     }
 
-    public Optional<Atendimento> getById(String id) {
+    public Optional<Atendimento> getById(Integer id) {
         return atendimentoRepository.findById(id);
     }
 
-    public void update(String id, Atendimento atendimento) {
+    public void update(Integer id, Atendimento atendimento) {
         Optional<Atendimento> optionalAtendimento = atendimentoRepository.findById(id);
         if(optionalAtendimento.isEmpty()){
             throw new EntityNotFoundException("Atendimento não encontrado com o ID: " + id);
