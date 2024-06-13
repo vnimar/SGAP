@@ -1,7 +1,9 @@
 .cadastro {
+  background: url('../../../../assets/images/imagem-clinica.webp') no-repeat center / cover;
   margin: 0 auto;
-  padding: 2em 0;
-  width: 85%;
+  height: 88.5vh;
+  padding: 2em auto;
+  width: 100%;
 
   &__titulo {
     font-size: 2em;

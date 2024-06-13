@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AtendimentoModule } from './atendimentos/atendimento.module';
 import { LoginComponent } from './authentication/login/login.component';
 
 const routes: Routes = [
@@ -12,6 +11,10 @@ const routes: Routes = [
   {
     path: 'atendimentos',
     loadChildren: () => import('./atendimentos/atendimento.module').then(m => m.AtendimentoModule)
+  },
+  {
+    path: 'funcionarios',
+    loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule)
   },
   {
     path: '',

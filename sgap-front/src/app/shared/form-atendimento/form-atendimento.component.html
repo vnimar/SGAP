@@ -8,16 +8,17 @@
         </div>
         <div class="input-texto">
           <label for="tipo">Tipo</label>
-          <input type="text" formControlName="tipo">
+          <input type="text" formControlName="tipo" placeholder="Tipo de atendimento">
         </div>
         <div class="input-texto">
           <label for="observacao">Observações</label>
-          <textarea formControlName="observacao"></textarea>
+          <textarea formControlName="observacao" placeholder="Observações sobre o atendimento"></textarea>
         </div>
       </div>
     </div>
     <div class="btn-group">
-      <button type="button" (click)="excluir()" class="botao" *ngIf="editComponent === true">EXCLUIR</button>
+      <button type="button" class="botao" routerLink="/atendimentos/lista">CANCELAR</button>
+      <button type="button" (click)="excluir()" class="botao botao-excluir" *ngIf="editComponent === true">EXCLUIR</button>
       <button type="submit" (click)="executarAcao()" class="botao" [disabled]="formAtendimento.invalid">ENVIAR</button>
     </div>
   </form>

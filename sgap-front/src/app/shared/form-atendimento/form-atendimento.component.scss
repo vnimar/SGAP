@@ -1,7 +1,12 @@
 @import "../../../styles.scss";
 
 .form-assistidos {
-  padding: 2em 0;
+  background: rgba(4, 0, 54, 0.54);
+  border-radius: 14px;
+  margin: 0.5em auto;
+  padding: 2em;
+  width: 85%;
+
   .row {
     display: flex;
     flex-direction: row;
@@ -20,14 +25,18 @@
     align-items: center;
     display: flex;
     justify-content: center;
+    gap: 0.5em;
 
     .botao {
       padding: 0.5em 1em;
+    }
 
-      &:last-child {
-        margin-left: 1em;
+    .botao-excluir {
+      background: $vermelho;
+
+      &:hover {
+        background: rgb(111, 0, 0);
       }
     }
   }
-
 }
