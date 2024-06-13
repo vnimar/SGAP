@@ -21,7 +21,7 @@ public class PacienteController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Optional<Paciente>> findById (@PathVariable("id") String id){
+    public ResponseEntity<Optional<Paciente>> findById (@PathVariable("id") Integer id){
         var paciente = this.pacienteService.getById(id);
         return ResponseEntity.ok(paciente);
     }
@@ -33,13 +33,13 @@ public class PacienteController {
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<?> delete(@PathVariable("id") String id){
+    public ResponseEntity<?> delete(@PathVariable("id") Integer id){
         pacienteService.delete(id);
         return ResponseEntity.noContent().build();
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Paciente> update(@PathVariable("id") String id, @RequestBody Paciente paciente){
+    public ResponseEntity<Paciente> update(@PathVariable("id") Integer id, @RequestBody Paciente paciente){
         pacienteService.update(id, paciente);
         return ResponseEntity.noContent().build();
     }

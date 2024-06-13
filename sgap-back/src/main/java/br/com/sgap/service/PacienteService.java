@@ -26,15 +26,15 @@ public class PacienteService {
         return  pacienteRepository.findAll();
     }
 
-    public void delete(String id){
+    public void delete(Integer id){
         pacienteRepository.deleteById(id);
     }
 
-    public Optional<Paciente> getById(String id){
+    public Optional<Paciente> getById(Integer id){
         return pacienteRepository.findById(id);
     }
 
-    public void update(String id, Paciente paciente){
+    public void update(Integer id, Paciente paciente){
         Optional<Paciente> optionalPaciente = pacienteRepository.findById(id);
         if(optionalPaciente.isEmpty()){
             throw new EntityNotFoundException("Paciente não encontrado com o ID: " + id);
