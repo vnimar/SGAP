@@ -26,4 +26,12 @@ export class AuthService {
         })
       )
   }
+
+  cadastro(funcionario: Funcionario): Observable<Funcionario> {
+    return this.http.post<Funcionario>(`${this.API}/auth/register`, funcionario);
+  }
+
+  edicao(id: string, funcionario: Funcionario): Observable<Funcionario> {
+    return this.http.put<Funcionario>(`${this.API}/auth/update/${id}`, funcionario);
+  }
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -21,20 +22,27 @@ public class AuthService implements UserDetailsService {
     }
 
     public void cadastrar(Funcionario novoFuncionario) {
-        Funcionario funcionario = new Funcionario();
-        funcionario.setEmail(novoFuncionario.getEmail());
-        funcionario.setNome(novoFuncionario.getNome());
-        funcionario.setSenha(novoFuncionario.getSenha());
+        if (repository.findByEmail(novoFuncionario.getEmail()) != null) {
+            throw new IllegalArgumentException("Email já existe");
+        }
+
+        String encryptedPassword = new BCryptPasswordEncoder().encode(novoFuncionario.getSenha());
+        Funcionario funcionario = new Funcionario(novoFuncionario.getNome(), novoFuncionario.getEmail(), encryptedPassword);
         repository.save(funcionario);
     }
 
     public void editar(Integer id, Funcionario funcionario) {
         Optional<Funcionario> usuario = repository.findById(id);
         if (usuario.isPresent()) {
-            usuario.get().setNome(funcionario.getNome());
-            usuario.get().setSenha(funcionario.getSenha());
-            usuario.get().setEmail(funcionario.getEmail());
-            repository.saveAndFlush(usuario.get());
+            if (repository.findByEmail(funcionario.getEmail()) != null) {
+                throw new IllegalArgumentException("Email já existe");
+            }
+
+            Funcionario usuarioAtualizado = usuario.get();
+            usuarioAtualizado.setNome(funcionario.getNome());
+            usuarioAtualizado.setSenha(new BCryptPasswordEncoder().encode(funcionario.getSenha()));
+            usuarioAtualizado.setEmail(funcionario.getEmail());
+            repository.saveAndFlush(usuarioAtualizado);
         }
     }
 }

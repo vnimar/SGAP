@@ -4,13 +4,12 @@ import br.com.sgap.infra.security.TokenService;
 import br.com.sgap.model.funcionario.AuthDTO;
 import br.com.sgap.model.funcionario.Funcionario;
 import br.com.sgap.model.funcionario.LoginResponseDTO;
-import br.com.sgap.repository.FuncionarioRepository;
+import br.com.sgap.service.AuthService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -21,7 +20,7 @@ public class AuthController {
     @Autowired
     private TokenService tokenService;
     @Autowired
-    private FuncionarioRepository funcionarioRepository;
+    private AuthService authService;
 
     @PostMapping("/login")
     public ResponseEntity<?> verifyLogin(@RequestBody @Valid AuthDTO funcionario) {
@@ -34,29 +33,21 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody @Valid Funcionario funcionarioNovo) {
-        if(this.funcionarioRepository.findByEmail(funcionarioNovo.getEmail()) != null){
-            return ResponseEntity.badRequest().build();
+        try {
+            authService.cadastrar(funcionarioNovo);
+            return ResponseEntity.ok().build();
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
-
-        String encryptedPassword = new BCryptPasswordEncoder().encode(funcionarioNovo.getSenha());
-        Funcionario novoUsuario = new Funcionario(funcionarioNovo.getNome(), funcionarioNovo.getEmail(), encryptedPassword);
-
-        this.funcionarioRepository.save(novoUsuario);
-
-        return ResponseEntity.ok().build();
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Funcionario> editar(@PathVariable("id") String id, @RequestBody Funcionario funcionario) {
-        if(this.funcionarioRepository.findByEmail(funcionario.getEmail()) != null){
-            return ResponseEntity.badRequest().build();
+    public ResponseEntity<?> editar(@PathVariable("id") Integer id, @RequestBody Funcionario funcionario) {
+        try {
+            authService.editar(id, funcionario);
+            return ResponseEntity.ok().build();
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
-
-        String encryptedPassword = new BCryptPasswordEncoder().encode(funcionario.getSenha());
-        Funcionario usuarioAtualizado = new Funcionario(funcionario.getNome(), funcionario.getEmail(), encryptedPassword);
-
-        this.funcionarioRepository.save(usuarioAtualizado);
-
-        return ResponseEntity.ok().build();
     }
 }
