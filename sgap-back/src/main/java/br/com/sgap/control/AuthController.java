@@ -1,6 +1,7 @@
 package br.com.sgap.control;
 
 import br.com.sgap.infra.security.TokenService;
+import br.com.sgap.model.funcionario.AuthDTO;
 import br.com.sgap.model.funcionario.Funcionario;
 import br.com.sgap.model.funcionario.LoginResponseDTO;
 import br.com.sgap.repository.FuncionarioRepository;
@@ -23,7 +24,7 @@ public class AuthController {
     private FuncionarioRepository funcionarioRepository;
 
     @PostMapping("/login")
-    public ResponseEntity<?> verifyLogin(@RequestBody @Valid Funcionario funcionario) {
+    public ResponseEntity<?> verifyLogin(@RequestBody @Valid AuthDTO funcionario) {
         var usernamePassword = new UsernamePasswordAuthenticationToken(funcionario.getEmail(), funcionario.getSenha());
         var auth = this.authenticationManager.authenticate(usernamePassword);
 
