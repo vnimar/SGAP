@@ -34,8 +34,8 @@
     </div>
     <div class="btn-group">
       <button type="button" class="botao" routerLink="/funcionarios/lista">CANCELAR</button>
-      <button type="button" (click)="excluir()" class="botao botao-excluir"
-        *ngIf="editComponent === true">EXCLUIR</button>
+      <!-- <button type="button" (click)="excluir()" class="botao botao-excluir"
+        *ngIf="editComponent === true">EXCLUIR</button> -->
       <button type="submit" (click)="executarAcao()" class="botao" [disabled]="formFuncionario.invalid">ENVIAR</button>
     </div>
   </form>

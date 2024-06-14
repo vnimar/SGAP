@@ -10,6 +10,7 @@ import { MenuLateralComponent } from "./toolbar/menu-lateral/menu-lateral.compon
 import { ToolbarComponent } from "./toolbar/toolbar.component";
 import { FormAtendimentoComponent } from './form-atendimento/form-atendimento.component';
 import { FormFuncionarioComponent } from './form-funcionario/form-funcionario.component';
+import { FormPacienteComponent } from './form-paciente/form-paciente.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FormFuncionarioComponent } from './form-funcionario/form-funcionario.co
     MensagemErroComponent,
     FormAtendimentoComponent,
     FormFuncionarioComponent,
+    FormPacienteComponent,
   ],
   imports: [
     CommonModule,
@@ -33,7 +35,8 @@ import { FormFuncionarioComponent } from './form-funcionario/form-funcionario.co
     MenuLateralComponent,
     MensagemErroComponent,
     FormAtendimentoComponent,
-    FormFuncionarioComponent
+    FormFuncionarioComponent,
+    FormPacienteComponent
   ]
 })
 

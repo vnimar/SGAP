@@ -1,22 +1,17 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FormsService } from 'src/app/core/services/forms.service';
-import { Cargo } from 'src/app/core/types/funcionario';
 
 @Component({
-  selector: 'app-form-funcionario',
-  templateUrl: './form-funcionario.component.html',
-  styleUrls: ['./form-funcionario.component.scss']
+  selector: 'app-form-paciente',
+  templateUrl: './form-paciente.component.html',
+  styleUrls: ['./form-paciente.component.scss']
 })
-export class FormFuncionarioComponent implements OnInit {
-  formFuncionario!: FormGroup;
+export class FormPacienteComponent implements OnInit {
+  formPaciente!: FormGroup;
   @Input() editComponent = false;
   @Output() acaoClique: EventEmitter<void> = new EventEmitter<void>();
-  // @Output() cliqueExcluir: EventEmitter<void> = new EventEmitter<void>();
-  cargos: Cargo[] = [
-    {id: 1, tipo: 'Atendente'},
-    {id: 2, tipo: 'Médico'}
-  ];
+  @Output() cliqueExcluir: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(
     private formBuilder: FormBuilder,
@@ -24,22 +19,20 @@ export class FormFuncionarioComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.formFuncionario = this.formBuilder.group({
+    this.formPaciente = this.formBuilder.group({
       nome: [null, [Validators.required, Validators.minLength(3)]],
       email: [null, [Validators.required, Validators.email]],
       telefone: [null],
-      senha: [null, Validators.required],
-      cargo: [null]
     });
 
-    this.formsService.setForm(this.formFuncionario);
+    this.formsService.setForm(this.formPaciente);
   }
 
   executarAcao() {
     this.acaoClique.emit();
   }
 
-  // excluir() {
-  //   this.cliqueExcluir.emit();
-  // }
+  excluir() {
+    this.cliqueExcluir.emit();
+  }
 }

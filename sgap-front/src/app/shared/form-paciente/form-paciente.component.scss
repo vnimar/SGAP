@@ -1,0 +1,42 @@
+@import "../../../styles.scss";
+
+.form-funcionarios {
+  background: rgba(4, 0, 54, 0.54);
+  border-radius: 14px;
+  margin: 0.5em auto;
+  padding: 2em;
+  width: 85%;
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .col {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 1em 0;
+  }
+
+  .btn-group {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+
+    .botao {
+      padding: 0.5em 1em;
+    }
+
+    .botao-excluir {
+      background: $vermelho;
+
+      &:hover {
+        background: rgb(111, 0, 0);
+      }
+    }
+  }
+}

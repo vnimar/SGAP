@@ -24,11 +24,11 @@ export class PacienteService {
     return this.http.get<Paciente[]>(`${this.API}/paciente`);
   }
 
-  public excluirPaciente(id: string): Observable<Paciente> {
+  public excluirPaciente(id: number): Observable<Paciente> {
     return this.http.delete<Paciente>(`${this.API}/paciente/${id}`);
   }
 
-  public atualizarPaciente(id: string, paciente: Paciente): Observable<Paciente> {
+  public atualizarPaciente(id: number, paciente: Paciente): Observable<Paciente> {
     return this.http.put<Paciente>(`${this.API}/paciente/${id}`, paciente);
   }
 }

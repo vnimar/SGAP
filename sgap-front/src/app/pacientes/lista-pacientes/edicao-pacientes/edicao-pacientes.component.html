@@ -1,0 +1,5 @@
+<app-toolbar />
+<main class="edicao">
+  <h2 class="edicao__titulo">Editar Paciente</h2>
+  <app-form-paciente [editComponent]="true" (acaoClique)="editarFuncionario()" (cliqueExcluir)="excluirPaciente()"/>
+</main>
