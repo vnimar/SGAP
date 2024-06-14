@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./user-create.component.scss']
 })
 export class UserCreateComponent {
-
+  cadastrar(){}
 }

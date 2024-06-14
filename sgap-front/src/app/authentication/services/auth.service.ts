@@ -34,4 +34,8 @@ export class AuthService {
   edicao(id: string, funcionario: Funcionario): Observable<Funcionario> {
     return this.http.put<Funcionario>(`${this.API}/auth/update/${id}`, funcionario);
   }
+
+  listar(): Observable<Funcionario[]> {
+    return this.http.get<Funcionario[]>(`${this.API}/auth/list`);
+  }
 }

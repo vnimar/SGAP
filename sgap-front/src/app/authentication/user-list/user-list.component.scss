@@ -1,0 +1,79 @@
+@import '../../../styles.scss';
+
+.listagem {
+  display: flex;
+  background: url('../../../assets/images/medicos-trabalhando.png') no-repeat center / cover;
+  flex-direction: column;
+  height: 88.5vh;
+  padding: 0 auto;
+  overflow: hidden;
+  width: 100%;
+
+  .acoes {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin: 1em 0;
+    width: 100%;
+  }
+
+  .tabela {
+    border-radius: 10px 10px 0 0;
+    margin: 1.5em auto;
+
+    &__cabecalho {
+      background-color: $azul-escuro;
+      color: $branco;
+
+      tr {
+        td {
+          border: 1px solid $branco;
+          font-weight: bold;
+          padding: 1.5em 3em;
+          text-align: center;
+        }
+      }
+    }
+
+    &__corpo {
+      tr {
+        td {
+          background: $azul;
+          border: 1px solid $branco;
+          color: $branco;
+          padding: 0.5em 2em;
+          text-align: center;
+
+          a:hover {
+            border-radius: 100%;
+            background: rgba(0, 0, 0, 0.316);
+            padding: 0.8em 0.5em 0.2em;
+          }
+        }
+      }
+    }
+
+    &__rodape {
+      background-color: $azul-escuro;
+      tr {
+        .footer-container {
+           height: 30px;
+        }
+      }
+    }
+  }
+
+  .container-vazio {
+    background: rgba(0, 0, 0, 0.316);
+    border-radius: 12px;
+    margin: 5em auto;
+    padding: 1em;
+
+    .texto-vazio {
+      color: $branco;
+      text-align: center;
+      font-weight: bold;
+      padding: 1em 0;
+    }
+  }
+}

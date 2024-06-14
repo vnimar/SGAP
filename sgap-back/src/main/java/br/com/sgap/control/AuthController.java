@@ -42,12 +42,18 @@ public class AuthController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<?> editar(@PathVariable("id") Integer id, @RequestBody Funcionario funcionario) {
+    public ResponseEntity<?> editUser(@PathVariable("id") Integer id, @RequestBody Funcionario funcionario) {
         try {
             authService.editar(id, funcionario);
             return ResponseEntity.ok().build();
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
+    }
+
+    @GetMapping("/list")
+    public ResponseEntity<?> listUsers(){
+        var listaUsuarios = authService.listar();
+        return ResponseEntity.ok(listaUsuarios);
     }
 }

@@ -1,0 +1,34 @@
+<section class="form-funcionarios">
+  <form [formGroup]="formFuncionario">
+    <div class="row">
+      <div class="col">
+        <div class="input-texto">
+          <label for="nome">Nome</label>
+          <input type="text" formControlName="nome" placeholder="Nome do funcionário">
+        </div>
+      </div>
+      <div class="input-texto">
+        <label for="email">Email</label>
+        <input type="text" formControlName="email" placeholder="E-mail do funcionário">
+      </div>
+      <div class="col">
+        <div class="input-texto">
+          <label for="telefone">Telefone</label>
+          <input type="text" formControlName="telefone" placeholder="Telefone do funcionário">
+        </div>
+      </div>
+      </div>
+        <div class="col">
+          <div class="input-texto">
+            <label for="senha">Senha</label>
+            <input type="text" formControlName="senha" placeholder="Senha do funcionário">
+          </div>
+        </div>
+    <div class="btn-group">
+      <button type="button" class="botao" routerLink="/atendimentos/lista">CANCELAR</button>
+      <button type="button" (click)="excluir()" class="botao botao-excluir"
+        *ngIf="editComponent === true">EXCLUIR</button>
+      <button type="submit" (click)="executarAcao()" class="botao" [disabled]="formFuncionario.invalid">ENVIAR</button>
+    </div>
+  </form>
+</section>

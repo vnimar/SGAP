@@ -64,9 +64,13 @@
   }
 
   .container-vazio {
+    background: rgba(0, 0, 0, 0.316);
+    border-radius: 12px;
     margin: 5em auto;
+    padding: 1em;
 
     .texto-vazio {
+      color: $branco;
       text-align: center;
       font-weight: bold;
       padding: 1em 0;

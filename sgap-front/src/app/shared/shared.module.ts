@@ -9,6 +9,7 @@ import { BotaoHamburguerComponent } from "./toolbar/menu-lateral/botao-hamburgue
 import { MenuLateralComponent } from "./toolbar/menu-lateral/menu-lateral.component";
 import { ToolbarComponent } from "./toolbar/toolbar.component";
 import { FormAtendimentoComponent } from './form-atendimento/form-atendimento.component';
+import { FormFuncionarioComponent } from './form-funcionario/form-funcionario.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FormAtendimentoComponent } from './form-atendimento/form-atendimento.co
     MenuLateralComponent,
     MensagemErroComponent,
     FormAtendimentoComponent,
+    FormFuncionarioComponent,
   ],
   imports: [
     CommonModule,
@@ -31,6 +33,7 @@ import { FormAtendimentoComponent } from './form-atendimento/form-atendimento.co
     MenuLateralComponent,
     MensagemErroComponent,
     FormAtendimentoComponent,
+    FormFuncionarioComponent
   ]
 })
 
