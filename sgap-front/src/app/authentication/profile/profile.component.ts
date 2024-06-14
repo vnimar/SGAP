@@ -1,30 +1,27 @@
 import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { FormsService } from 'src/app/core/services/forms.service';
 import { Funcionario } from 'src/app/core/types/funcionario';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../services/auth.service';
+import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { FormsService } from 'src/app/core/services/forms.service';
 
 @Component({
-  selector: 'app-user-edit',
-  templateUrl: './user-edit.component.html',
-  styleUrls: ['./user-edit.component.scss']
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.scss']
 })
-export class UserEditComponent {
+export class ProfileComponent {
   formAtendimento!: FormGroup | null;
   funcionario!: Funcionario;
 
   constructor(
-    private route: ActivatedRoute,
     private funcionarioService: AuthService,
     private formsService: FormsService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
-    const idFuncionario = this.route.snapshot.paramMap.get('id') as string;
-
-    this.funcionarioService.buscarFuncionario(idFuncionario).subscribe({
+    this.funcionarioService.buscarMeuUsuario().subscribe({
       next: (funcionarioEcontrado) => {
         this.funcionario = funcionarioEcontrado;
         this.carregarFormulario();
@@ -55,20 +52,10 @@ export class UserEditComponent {
       cargo: this.formAtendimento?.value.cargo
     }
 
-    console.log(this.funcionario.id);
-
     this.funcionarioService.edicao(this.funcionario.id, dadosAtualizados).subscribe({
       next: () => {
         this.router.navigate(['/atendimentos/lista']);
       }
     });
   }
-
-  // excluirAtendimento() {
-  //   this.funcionarioService.excluirAtendimento(this.funcionario.id).subscribe({
-  //     next: () => {
-  //       this.router.navigate(['/atendimentos/lista']);
-  //     }
-  //   });
-  // }
 }

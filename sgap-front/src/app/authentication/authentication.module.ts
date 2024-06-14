@@ -7,13 +7,15 @@ import { UserCreateComponent } from "./user-list/user-create/user-create.compone
 import { UserEditComponent } from "./user-list/user-edit/user-edit.component";
 import { UserListComponent } from './user-list/user-list.component';
 import { AuthenticationRoutingModule } from "./authentication-routing.module";
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     UserCreateComponent,
     UserEditComponent,
-    UserListComponent
+    UserListComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { AuthenticationRoutingModule } from "./authentication-routing.module";
     LoginComponent,
     UserCreateComponent,
     UserEditComponent,
-    UserListComponent
+    UserListComponent,
+    ProfileComponent
   ]
 })
 export class AuthenticationModule {}

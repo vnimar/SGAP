@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './authentication/login/login.component';
+import { authGuard } from './authentication/guard.guard';
 
 const routes: Routes = [
   {
@@ -10,11 +11,13 @@ const routes: Routes = [
   },
   {
     path: 'atendimentos',
-    loadChildren: () => import('./atendimentos/atendimento.module').then(m => m.AtendimentoModule)
+    loadChildren: () => import('./atendimentos/atendimento.module').then(m => m.AtendimentoModule),
+    canActivate: [authGuard]
   },
   {
     path: 'funcionarios',
-    loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule)
+    loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule),
+    canActivate: [authGuard]
   },
   {
     path: '',
