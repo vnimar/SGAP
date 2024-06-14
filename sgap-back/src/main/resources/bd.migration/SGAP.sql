@@ -51,7 +51,7 @@ INSERT INTO tb_paciente (nome, email, telefone) VALUES ('Igor Miranda', 'igmimo@
 SELECT * FROM tb_paciente;
 
 -- Inserindo Atendimento e consultando:
-INSERT INTO `tb_atendimento` (id, horario, tipo_atendimento, observacao, paciente_id, medico_id) VALUES (UUID(), '2024-05-17 23:19:38', 'Cardiologia', null, '1', '2');
+INSERT INTO `tb_atendimento` (horario, tipo_atendimento, observacao, paciente_id, medico_id) VALUES ( '2024-05-17 23:19:38', 'Cardiologia', null, '1', '2');
 SELECT * FROM `tb_atendimento`;
 
 SELECT tb_paciente.nome AS 'Paciente', tb_funcionarios.nome AS 'Medico',

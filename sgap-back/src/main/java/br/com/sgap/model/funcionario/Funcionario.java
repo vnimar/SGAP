@@ -19,9 +19,14 @@ public class Funcionario implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
+    @Column(name="email", nullable = false)
     private String email;
+    @Column(name = "telefone", length = 18)
     private String telefone;
+    @Column(name = "senha", length = 60)
     private String senha;
+    @Column(name = "crm", length = 8)
+    private String crm;
     @ManyToOne
     @JoinColumn(name = "cargo_id")
     private Cargo cargo;

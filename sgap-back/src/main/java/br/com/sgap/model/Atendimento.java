@@ -1,5 +1,6 @@
 package br.com.sgap.model;
 
+import br.com.sgap.model.funcionario.Funcionario;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,10 +21,10 @@ public class Atendimento {
     private String tipo;
     @Column(name = "observacao", columnDefinition = "TEXT")
     private String observacao;
-//    @OneToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "paciente_id")
-//    private Integer paciente_id;
-//    @OneToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "medico_id")
-//    private Integer medico_id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "paciente_id")
+    private Paciente paciente;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "medico_id")
+    private Funcionario medico;
 }

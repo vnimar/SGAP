@@ -14,12 +14,22 @@
           <label for="observacao">Observações</label>
           <textarea formControlName="observacao" placeholder="Observações sobre o atendimento"></textarea>
         </div>
+        <!-- Campo para o ID do Médico -->
+        <div class="input-texto">
+          <label for="medico">ID do Médico</label>
+          <input type="text" formControlName="medico" placeholder="ID do Médico">
+        </div>
+        <!-- Campo para o ID do Paciente -->
+        <div class="input-texto">
+          <label for="paciente">ID do Paciente</label>
+          <input type="text" formControlName="paciente" placeholder="ID do Paciente">
+        </div>
       </div>
     </div>
     <div class="btn-group">
       <button type="button" class="botao" routerLink="/atendimentos/lista">CANCELAR</button>
       <button type="button" (click)="excluir()" class="botao botao-excluir" *ngIf="editComponent === true">EXCLUIR</button>
-      <button type="submit" (click)="executarAcao()" class="botao" [disabled]="formAtendimento.invalid">ENVIAR</button>
+      <button type="submit" class="botao" [disabled]="formAtendimento.invalid">ENVIAR</button>
     </div>
   </form>
 </section>

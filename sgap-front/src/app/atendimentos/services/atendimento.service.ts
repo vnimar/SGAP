@@ -29,8 +29,6 @@ export class AtendimentoService {
   }
 
   public atualizarAtendimento(id: string, atendimento: Atendimento): Observable<Atendimento> {
-    console.log(atendimento);
-
     return this.http.put<Atendimento>(`${this.API}/atendimento/${id}`, atendimento);
   }
 }

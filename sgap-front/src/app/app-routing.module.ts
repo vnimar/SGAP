@@ -1,3 +1,4 @@
+import { PacienteModule } from './pacientes/paciente.module';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -17,6 +18,11 @@ const routes: Routes = [
   {
     path: 'funcionarios',
     loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule),
+    canActivate: [authGuard]
+  },
+  {
+    path: 'pacientes',
+    loadChildren: () => import('./pacientes/paciente.module').then(m => m.PacienteModule),
     canActivate: [authGuard]
   },
   {

@@ -16,6 +16,8 @@ export class ListaAtendimentosComponent implements OnInit {
     this.atendimentoService.listarAtendimentos().subscribe({
       next: (resp) => {
         this.listaAtendimentos = resp;
+        console.log(resp);
+
       },
       error: () => {
         alert("Erro ao consultar lista!");

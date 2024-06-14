@@ -22,7 +22,9 @@ export class FormAtendimentoComponent {
     this.formAtendimento = this.formBuilder.group({
       horario: [null, Validators.required],
       tipo: [null, Validators.required],
-      observacao: [null]
+      observacao: [null],
+      medico: [null, Validators.required], // Adicionar campo para o ID do médico
+      paciente: [null, Validators.required], // Adicionar campo para o ID do paciente
     });
 
     this.formsService.setForm(this.formAtendimento);

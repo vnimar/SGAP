@@ -6,29 +6,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/atendimento")
 public class AtendimentoController {
+
     @Autowired
     private AtendimentoService atendimentoService;
 
     @PostMapping
-    public ResponseEntity<?> insert(@RequestBody Atendimento data) {
-        atendimentoService.insert(data);
+    public ResponseEntity<?> insert(@RequestBody Atendimento atendimento) {
+        atendimentoService.insert(atendimento);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Optional<Atendimento>> findById (@PathVariable("id") Integer id){
-        var atendimento = this.atendimentoService.getById(id);
+    public ResponseEntity<Atendimento> findById(@PathVariable("id") Integer id) {
+        Atendimento atendimento = atendimentoService.getById(id);
         return ResponseEntity.ok(atendimento);
     }
 
     @GetMapping
-    public ResponseEntity<?> getAll() {
-        var atendimentos = atendimentoService.list();
+    public ResponseEntity<List<Atendimento>> getAll() {
+        List<Atendimento> atendimentos = atendimentoService.list();
         return ResponseEntity.ok(atendimentos);
     }
 
@@ -39,7 +40,7 @@ public class AtendimentoController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Atendimento> update(@PathVariable("id") Integer id, @RequestBody Atendimento atendimento) {
+    public ResponseEntity<?> update(@PathVariable("id") Integer id, @RequestBody Atendimento atendimento) {
         atendimentoService.update(id, atendimento);
         return ResponseEntity.noContent().build();
     }
