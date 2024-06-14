@@ -21,8 +21,15 @@
     padding-left: 1em;
   }
 
-  .espacador {
-    width: 30px;
+  .menu-atalhos {
     padding-right: 1em;
+
+    p {
+      a {
+        color: $branco;
+        font-weight: bold;
+        text-decoration: none;
+      }
+    }
   }
 }

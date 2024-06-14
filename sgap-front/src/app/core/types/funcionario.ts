@@ -1,8 +1,13 @@
 export interface Funcionario {
-  id: number;
+  id: string;
   nome: string;
   email: string;
   telefone: string;
   senha: string;
-  cargo_id: string | object
+  cargo?: Cargo | string
+}
+
+export interface Cargo {
+  id: number,
+  tipo: string
 }

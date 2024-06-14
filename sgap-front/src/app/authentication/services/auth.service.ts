@@ -38,4 +38,12 @@ export class AuthService {
   listar(): Observable<Funcionario[]> {
     return this.http.get<Funcionario[]>(`${this.API}/auth/list`);
   }
+
+  buscarFuncionario(id: string): Observable<Funcionario> {
+    return this.http.get<Funcionario>(`${this.API}/auth/get/${id}`);
+  }
+
+  buscarMeuUsuario(): Observable<Funcionario> {
+    return this.http.get<Funcionario>(`${this.API}/auth/me`);
+  }
 }

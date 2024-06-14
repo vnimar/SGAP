@@ -2,6 +2,10 @@ package br.com.sgap.model.funcionario;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
 
 @Entity(name = "funcionario")
 @Table(name = "tb_funcionarios")
@@ -10,15 +14,54 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode(of = "id")
-public class Funcionario {
+public class Funcionario implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
     private String email;
+    private String telefone;
     private String senha;
+    @ManyToOne
+    @JoinColumn(name = "cargo_id")
+    private Cargo cargo;
 
     // construtor para o Funcionario sem ID
-    public Funcionario(String nome, String email, String encryptedPassword) {
+    public Funcionario(String nome, String email, String telefone, String encryptedPassword) {
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
+    @Override
+    public String getPassword() {
+        return senha;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { AuthService } from 'src/app/authentication/services/auth.service';
 
 @Component({
   selector: 'app-menu-lateral',
@@ -7,4 +8,6 @@ import { Component, Input } from '@angular/core';
 })
 export class MenuLateralComponent {
   @Input() menuOpen = false;
+
+  constructor(private cadastroService: AuthService){}
 }

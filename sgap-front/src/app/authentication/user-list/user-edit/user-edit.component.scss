@@ -1,0 +1,13 @@
+.edicao {
+  background: url('../../../../assets/images/medicos-trabalhando.png') no-repeat center / cover;
+  margin: 0 auto;
+  height: 88.5vh;
+  padding: 2em auto;
+  width: 100%;
+
+  &__titulo {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+  }
+}

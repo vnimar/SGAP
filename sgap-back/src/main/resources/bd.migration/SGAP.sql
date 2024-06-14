@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `SGAP`.`tb_funcionarios`(
     nome VARCHAR(150) not null,
     email VARCHAR(100) not null,
     telefone VARCHAR(18) not null,
-    senha CHAR(50) not null,
+    senha CHAR(60) not null,
     cargo_id int,
     foreign key (cargo_id) references tb_cargo (id)
 )ENGINE = InnoDB;
@@ -42,8 +42,8 @@ INSERT INTO tb_cargo (tipo) values ('Médico'); -- cargo 2 = Médico
 SELECT * FROM tb_cargo;
 
 -- Inserindo Médico e Funcionário e consultando todos funcionários:
-INSERT INTO tb_funcionarios (nome, email, telefone, senha, cargo_id) VALUES ('Carlos Cavalcante', 'caca@gmail.com', '75102835', '123321', '1');
-INSERT INTO tb_funcionarios (crm, nome, email, telefone, senha, cargo_id) VALUES ('DF-26603', 'Henrique Lacerda', 'hl@gmail.com', '72105534', '321123', '2');
+INSERT INTO tb_funcionarios (nome, email, telefone, senha, cargo_id) VALUES ('Carlos Cavalcante', 'caca@gmail.com', '75102835', '$2a$10$jS4vO66K/WhqtiyG7TdO2eU06aSZOjmlIyXHKf8s90JsR39eGZ94e', '1'); -- senha 123321
+INSERT INTO tb_funcionarios (crm, nome, email, telefone, senha, cargo_id) VALUES ('DF-26603', 'Henrique Lacerda', 'hl@gmail.com', '72105534', '$2a$10$/QNsu5dVIZkCp7eHB6dq2eZfAuaK6KlQaNNDma7ut7XVJ1G1HODja', '2'); -- senha 123456
 SELECT * FROM tb_funcionarios;
 
 -- Inserindo Paciente e consultando:

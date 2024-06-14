@@ -1,6 +1,8 @@
 <header class="cabecalho">
   <app-botao-hamburguer (click)="toggleMenu()" />
   <h1 class="cabecalho__titulo">SGAP</h1>
-  <div class="espacador"></div>
+  <div class="menu-atalhos">
+    <p><a routerLink="/login">Sair</a></p>
+  </div>
 </header>
 <app-menu-lateral [menuOpen]="menuOpen" />

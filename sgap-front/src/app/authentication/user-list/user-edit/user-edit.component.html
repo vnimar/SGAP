@@ -1,2 +1,5 @@
 <app-toolbar />
-<p>user-edit works!</p>
+<main class="edicao">
+  <h2 class="edicao__titulo">Editar Atendimento</h2>
+  <app-form-funcionario [editComponent]="true" (acaoClique)="editarFuncionario()"></app-form-funcionario>
+</main>

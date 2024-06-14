@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from 'src/app/authentication/services/user.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -8,7 +9,13 @@ import { Component } from '@angular/core';
 export class ToolbarComponent {
   menuOpen = false;
 
+  constructor(private userService: UserService){}
+
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
+  }
+
+  logout(){
+    this.userService.logout();
   }
 }

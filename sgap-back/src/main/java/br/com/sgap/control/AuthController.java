@@ -32,7 +32,7 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> registerUser(@RequestBody @Valid Funcionario funcionarioNovo) {
+    public ResponseEntity<?> registerFuncionario(@RequestBody @Valid Funcionario funcionarioNovo) {
         try {
             authService.cadastrar(funcionarioNovo);
             return ResponseEntity.ok().build();
@@ -42,18 +42,31 @@ public class AuthController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<?> editUser(@PathVariable("id") Integer id, @RequestBody Funcionario funcionario) {
-        try {
+    public ResponseEntity<?> editFuncionario(@PathVariable("id") Integer id, @RequestBody @Valid Funcionario funcionario) {
             authService.editar(id, funcionario);
             return ResponseEntity.ok().build();
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
+
     }
 
     @GetMapping("/list")
-    public ResponseEntity<?> listUsers(){
-        var listaUsuarios = authService.listar();
+    public ResponseEntity<?> listFuncionarios() {
+        var listaUsuarios = authService.listFuncionarios();
         return ResponseEntity.ok(listaUsuarios);
+    }
+
+    @GetMapping("/get/{id}")
+    public ResponseEntity<?> getFuncionarioById(@PathVariable("id") Integer id) {
+        var usuario = authService.findById(id);
+        return ResponseEntity.ok(usuario);
+    }
+
+    @GetMapping("/me")
+    public ResponseEntity<?> getUsuarioLogado() {
+        try {
+            Funcionario usuarioLogado = authService.getUsuarioLogado();
+            return ResponseEntity.ok(usuarioLogado);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Erro ao obter usuário logado: " + e.getMessage());
+        }
     }
 }
