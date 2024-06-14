@@ -29,7 +29,7 @@
     <div class="btn-group">
       <button type="button" class="botao" routerLink="/atendimentos/lista">CANCELAR</button>
       <button type="button" (click)="excluir()" class="botao botao-excluir" *ngIf="editComponent === true">EXCLUIR</button>
-      <button type="submit" class="botao" [disabled]="formAtendimento.invalid">ENVIAR</button>
+      <button type="submit" (click)="executarAcao()" class="botao" [disabled]="formAtendimento.invalid">ENVIAR</button>
     </div>
   </form>
 </section>

@@ -17,10 +17,6 @@ export class ListaAtendimentosComponent implements OnInit {
       next: (resp) => {
         this.listaAtendimentos = resp;
         console.log(resp);
-
-      },
-      error: () => {
-        alert("Erro ao consultar lista!");
       }
     });
   }

@@ -16,9 +16,9 @@
     </thead>
     <tbody class="tabela__corpo">
       <tr *ngFor="let atendimento of listaAtendimentos">
-        <td>{{ atendimento.paciente }}</td>
+        <td>{{ atendimento.paciente?.id }}</td>
         <td>{{ atendimento.horario | date: 'dd/MM/yy - hh:mm' }}</td>
-        <td>{{ atendimento.medico }}</td>
+        <td>{{ atendimento.medico?.id }}</td>
         <td>{{ atendimento.tipo }}</td>
         <td><a [routerLink]="'/atendimentos/editar/' + atendimento.id"><img
               src="../../../assets/icons/icone-editar-branco.svg" alt="botão de edição"></a></td>

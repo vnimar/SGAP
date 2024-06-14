@@ -23,8 +23,8 @@ export class FormAtendimentoComponent {
       horario: [null, Validators.required],
       tipo: [null, Validators.required],
       observacao: [null],
-      medico: [null, Validators.required], // Adicionar campo para o ID do médico
-      paciente: [null, Validators.required], // Adicionar campo para o ID do paciente
+      medico: [null, Validators.required],
+      paciente: [null, Validators.required],
     });
 
     this.formsService.setForm(this.formAtendimento);

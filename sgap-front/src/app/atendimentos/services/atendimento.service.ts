@@ -12,7 +12,7 @@ export class AtendimentoService {
 
   constructor(private http: HttpClient) { }
 
-  public cadastrarAtendimento(atendimento: Atendimento): Observable<Atendimento> {
+  public cadastrarAtendimento(atendimento: any): Observable<Atendimento> {
     return this.http.post<Atendimento>(`${this.API}/atendimento`, atendimento);
   }
 

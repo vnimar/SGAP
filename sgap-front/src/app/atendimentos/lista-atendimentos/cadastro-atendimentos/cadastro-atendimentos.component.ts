@@ -16,22 +16,25 @@ export class CadastroAtendimentosComponent {
     private formsService: FormsService,
     private atendimentoService: AtendimentoService,
     private router: Router
-  ){}
+  ) { }
 
   cadastrar(): void {
     const formAtendimento = this.formsService.getForm();
 
-    if(formAtendimento?.valid){
+    if (formAtendimento?.valid) {
       this.novoAtendimento = formAtendimento.getRawValue() as Atendimento;
-          const formData = {
-            horario: this.novoAtendimento.horario,
-            tipo: this.novoAtendimento.tipo,
-            observacao: this.novoAtendimento.observacao,
-            medico: { id: this.novoAtendimento.medico },
-            paciente: { id: this.novoAtendimento.paciente }
-          };
+      const formData = {
+        horario: this.novoAtendimento.horario,
+        tipo: this.novoAtendimento.tipo,
+        observacao: this.novoAtendimento.observacao,
+        medico: { id: this.novoAtendimento.medico },
+        paciente: { id: this.novoAtendimento.paciente }
+      };
 
-      this.atendimentoService.cadastrarAtendimento(this.novoAtendimento).subscribe({
+
+      console.log(formData);
+
+      this.atendimentoService.cadastrarAtendimento(formData).subscribe({
         next: () => {
           this.router.navigate(['/atendimentos/lista']);
         }

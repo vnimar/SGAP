@@ -1,68 +1,67 @@
 package br.com.sgap.service;
 
-import br.com.sgap.model.Atendimento;
+import br.com.sgap.model.atendimento.Atendimento;
 import br.com.sgap.model.Paciente;
+import br.com.sgap.model.atendimento.AtendimentoDTO;
 import br.com.sgap.model.funcionario.Funcionario;
 import br.com.sgap.repository.AtendimentoRepository;
 import br.com.sgap.repository.FuncionarioRepository;
 import br.com.sgap.repository.PacienteRepository;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
+@Transactional
 public class AtendimentoService {
     @Autowired
-    AtendimentoRepository atendimentoRepository;
+    private AtendimentoRepository repository;
     @Autowired
-    FuncionarioRepository medicoRepository;
+    private FuncionarioRepository funcionarioRepository;
     @Autowired
-    PacienteRepository pacienteRepository;
+    private PacienteRepository pacienteRepository;
 
-    public void insert(Atendimento data) {
-        Funcionario medico = medicoRepository.findById(data.getMedico().getId())
-                .orElseThrow(() -> new EntityNotFoundException("Médico não encontrado com o ID: " + data.getMedico().getId()));
-
-        Paciente paciente = pacienteRepository.findById(data.getPaciente().getId())
-                .orElseThrow(() -> new EntityNotFoundException("Paciente não encontrado com o ID: " + data.getPaciente().getId()));
+    public void registerAtendimento(Atendimento novoAtendimento) {
+        Funcionario medico = funcionarioRepository.findById(novoAtendimento.getMedico().getId())
+                .orElseThrow(() -> new IllegalArgumentException("Médico não encontrado"));
+        Paciente paciente = pacienteRepository.findById(novoAtendimento.getPaciente().getId())
+                .orElseThrow(() -> new IllegalArgumentException("Paciente não encontrado"));
 
         Atendimento atendimento = new Atendimento();
-        atendimento.setHorario(data.getHorario());
-        atendimento.setTipo(data.getTipo());
-        atendimento.setObservacao(data.getObservacao());
+        atendimento.setHorario(novoAtendimento.getHorario());
+        atendimento.setTipo(novoAtendimento.getTipo());
+        atendimento.setObservacao(novoAtendimento.getObservacao());
         atendimento.setMedico(medico);
         atendimento.setPaciente(paciente);
-
-        atendimentoRepository.save(atendimento);
+        repository.save(atendimento);
     }
 
-    public List<Atendimento> list() {
-        return atendimentoRepository.findAll();
-    }
+    public void updateAtendimento(Integer id, Atendimento atendimento) {
+        Optional<Atendimento> atendimentoEncontrado = repository.findById(id);
+        if (atendimentoEncontrado.isPresent()) {
+            Funcionario medico = funcionarioRepository.findById(atendimento.getMedico().getId())
+                    .orElseThrow(() -> new IllegalArgumentException("Médico não encontrado"));
+            Paciente paciente = pacienteRepository.findById(atendimento.getPaciente().getId())
+                    .orElseThrow(() -> new IllegalArgumentException("Paciente não encontrado"));
 
-    public void delete(Integer id) {
-        atendimentoRepository.deleteById(id);
-    }
-
-    public Atendimento getById(Integer id) {
-        return atendimentoRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Atendimento não encontrado com o ID: " + id));
-    }
-
-    public void update(Integer id, Atendimento atendimento) {
-        Optional<Atendimento> optionalAtendimento = atendimentoRepository.findById(id);
-        if (optionalAtendimento.isEmpty()) {
-            throw new EntityNotFoundException("Atendimento não encontrado com o ID: " + id);
+            Atendimento atendimentoAtualizado = atendimentoEncontrado.get();
+            repository.saveAndFlush(atendimentoAtualizado);
         }
+    }
 
-        Atendimento existingAtendimento = optionalAtendimento.get();
-        existingAtendimento.setHorario(atendimento.getHorario());
-        existingAtendimento.setTipo(atendimento.getTipo());
-        existingAtendimento.setObservacao(atendimento.getObservacao());
+    public List<Atendimento> listAtendimentos() {
+        return repository.findAll();
+    }
 
-        atendimentoRepository.save(existingAtendimento);
+    public Optional<Atendimento> findById(Integer id) {
+        return repository.findById(id);
+    }
+
+    public void deleteAtendimento(Integer id) {
+        repository.deleteById(id);
     }
 }

@@ -38,7 +38,9 @@ export class EdicaoAtendimentosComponent implements OnInit {
       id: this.atendimento.id,
       horario: this.atendimento.horario,
       tipo: this.atendimento.tipo,
-      observacao: this.atendimento.observacao
+      observacao: this.atendimento.observacao,
+      medico: this.atendimento.medico?.id,
+      paciente: this.atendimento.paciente?.id
     });
   }
 
@@ -47,7 +49,9 @@ export class EdicaoAtendimentosComponent implements OnInit {
       id: this.atendimento.id,
       horario: this.formAtendimento?.value.horario,
       tipo: this.formAtendimento?.value.tipo,
-      observacao: this.formAtendimento?.value.observacao
+      observacao: this.formAtendimento?.value.observacao,
+      medico: { id: this.formAtendimento?.value.medico },
+      paciente: { id: this.formAtendimento?.value.paciente }
     }
 
     this.atendimentoService.atualizarAtendimento(this.atendimento.id, dadosAtualizados).subscribe({

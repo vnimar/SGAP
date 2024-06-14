@@ -1,6 +1,8 @@
-package br.com.sgap.model;
+package br.com.sgap.model.atendimento;
 
+import br.com.sgap.model.Paciente;
 import br.com.sgap.model.funcionario.Funcionario;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,8 +25,10 @@ public class Atendimento {
     private String observacao;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "paciente_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Paciente paciente;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "medico_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Funcionario medico;
 }
